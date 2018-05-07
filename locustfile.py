@@ -24,12 +24,23 @@ class UserBehavior(TaskSet):
         self.login()
 
     @task(10)
-    def index(self):
+    def expedition(self):
         profile_url = urls.Profile()
         self.client.get(profile_url.expedition)
+        self.client.get(profile_url.expedition_data_url, params=profile_url.expedition_data_params)
+
+    @task(1)
+    def stop(self):
+        profile_url = urls.Profile()
+        self.client.get(profile_url.stop)
+
+    @task(1)
+    def trajectory(self):
+        profile_url = urls.Profile()
+        self.client.get(profile_url.trajectory)
 
 
 class WebsiteUser(HttpLocust):
     task_set = UserBehavior
-    min_wait = 1000
-    max_wait = 3000
+    min_wait = 1000 * 5
+    max_wait = 1000 * 10
