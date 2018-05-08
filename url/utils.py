@@ -21,6 +21,6 @@ class Login:
     @property
     def login_parameters(self):
         return {
-            'id_username': 'transantiago',
-            'id_password': 'transantiago'
+            'username': 'transantiago',
+            'password': 'transantiago'
         }

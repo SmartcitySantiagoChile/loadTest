@@ -19,19 +19,19 @@ from url.utils import Login
 def login(l):
     login_url = Login()
     response = l.client.get(login_url.login_url)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    csrfmiddlewaretoken_value = soup.find('input', {'name': 'csrfmiddlewaretoken'}).get('value')
-    params = login_url.login_parameters.copy()
-    params['csrfmiddlewaretoken'] = csrfmiddlewaretoken_value
+    csrftoken = response.cookies['csrftoken']
 
-    l.client.post(login_url.login_url, params)
+    headers = {
+        'X-CSRFToken': csrftoken
+    }
+    l.client.post(login_url.login_url, login_url.login_parameters, headers=headers)
 
 
 class MasterUserBehavior(TaskSet):
     tasks = {
         ProfileUserBehavior: 60,
         SpeedUserBehavior: 20,
-        TripUserBehavior: 20
+        TripUserBehavior: 1000
     }
 
     def on_start(self):
