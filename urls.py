@@ -193,3 +193,17 @@ class Speed:
             'startDate': str(start_date),
             'operator': operator,
         }
+
+
+class Trip:
+
+    def __init__(self):
+        self.__url_html_prefix = 'trip'
+
+    @property
+    def index(self):
+        return format_url([self.__url_html_prefix])
+
+    """
+    HTML CALLS
+    """
