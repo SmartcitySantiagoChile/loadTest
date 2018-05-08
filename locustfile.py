@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 import os
 import sys
 
-from bs4 import BeautifulSoup
 from locust import HttpLocust, TaskSet
 
 sys.path.append(os.getcwd())
@@ -31,7 +30,7 @@ class MasterUserBehavior(TaskSet):
     tasks = {
         ProfileUserBehavior: 60,
         SpeedUserBehavior: 20,
-        TripUserBehavior: 1000
+        TripUserBehavior: 20
     }
 
     def on_start(self):
