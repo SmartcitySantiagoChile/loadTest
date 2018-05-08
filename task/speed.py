@@ -9,7 +9,7 @@ class SpeedUserBehavior(TaskSet):
     def __init__(self, parent):
         super(SpeedUserBehavior, self).__init__(parent)
         self.speed_url = Speed()
-        self.only_data = True
+        self.only_data = False
 
     @task(30)
     def matrix(self):

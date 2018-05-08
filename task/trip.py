@@ -9,7 +9,7 @@ class TripUserBehavior(TaskSet):
     def __init__(self, parent):
         super(TripUserBehavior, self).__init__(parent)
         self.trip_url = Trip()
-        self.only_data = True
+        self.only_data = False
 
     @task(10)
     def resume(self):

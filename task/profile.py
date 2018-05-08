@@ -11,7 +11,7 @@ class ProfileUserBehavior(TaskSet):
     def __init__(self, parent):
         super(ProfileUserBehavior, self).__init__(parent)
         self.profile_url = Profile()
-        self.only_data = True
+        self.only_data = False
 
     @task(60)
     def expedition(self):
