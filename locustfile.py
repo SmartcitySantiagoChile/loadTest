@@ -13,11 +13,11 @@ from task.profile import ProfileUserBehavior
 from task.speed import SpeedUserBehavior
 from task.trip import TripUserBehavior
 
-import urls
+from url.utils import Login
 
 
 def login(l):
-    login_url = urls.Login()
+    login_url = Login()
     response = l.client.get(login_url.login_url)
     soup = BeautifulSoup(response.text, 'html.parser')
     csrfmiddlewaretoken_value = soup.find('input', {'name': 'csrfmiddlewaretoken'}).get('value')
