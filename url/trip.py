@@ -130,8 +130,8 @@ class Trip:
     def get_strategies_data_params(self):
         end_date = self.start_date + timedelta(days=random.randint(2, self.delta))
         zones = range(1, 800)
-        origin_zones = random.sample(zones, random.randint(1, 20))
-        destination_zones = random.sample(zones, random.randint(1, 20))
+        origin_zones = random.sample(zones, random.randint(20, 50))
+        destination_zones = random.sample(zones, random.randint(20, 50))
 
         return {
             'startDate': str(self.start_date),
