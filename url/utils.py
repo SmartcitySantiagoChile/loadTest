@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 DOMAIN_PREFIX = 'fondefviz'
 URL_API_PREFIX = 'esapi'
 
@@ -20,7 +19,4 @@ class Login:
 
     @property
     def login_parameters(self):
-        return {
-            'username': 'transantiago',
-            'password': 'transantiago'
-        }
+        return dict(username='transantiago', password='transantiago')

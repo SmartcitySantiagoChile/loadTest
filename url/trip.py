@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
 import random
 from datetime import datetime, timedelta
 
 from url.utils import URL_API_PREFIX, format_url
+
 
 class Trip:
 

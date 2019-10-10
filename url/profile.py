@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
-from url.utils import URL_API_PREFIX, format_url
-
+import random
 from datetime import datetime, timedelta
 
-import random
+from url.utils import URL_API_PREFIX, format_url
 
 
 class Profile:
