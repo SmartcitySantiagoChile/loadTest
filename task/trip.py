@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from locust import TaskSet, task
 
 from url.trip import Trip
