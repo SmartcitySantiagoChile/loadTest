@@ -1,4 +1,4 @@
-DOMAIN_PREFIX = 'fondefviz'
+DOMAIN_PREFIX = ''
 URL_API_PREFIX = 'esapi'
 
 
@@ -15,7 +15,7 @@ class Login:
 
     @property
     def login_url(self):
-        return format_url(['login'])
+        return format_url(['user', 'login'])
 
     @property
     def login_parameters(self):

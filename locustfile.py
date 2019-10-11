@@ -1,26 +1,21 @@
-import os
-import sys
-
 from locust import HttpLocust, TaskSet
-
-sys.path.append(os.getcwd())
 
 from task.profile import ProfileUserBehavior
 from task.speed import SpeedUserBehavior
 from task.trip import TripUserBehavior
-
 from url.utils import Login
 
 
 def login(l):
-    login_url = Login()
-    response = l.client.get(login_url.login_url)
-    csrftoken = response.cookies['csrftoken']
+    login_instance = Login()
+    response = l.client.get(login_instance.login_url)
+    csrf_token = response.cookies['csrftoken']
 
     headers = {
-        'X-CSRFToken': csrftoken
+        'X-CSRFToken': csrf_token,
+        'Referer': l.client.base_url
     }
-    l.client.post(login_url.login_url, login_url.login_parameters, headers=headers)
+    l.client.post(login_instance.login_url, login_instance.login_parameters, headers=headers)
 
 
 class MasterUserBehavior(TaskSet):
