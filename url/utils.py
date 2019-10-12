@@ -1,3 +1,5 @@
+from decouple import config
+
 DOMAIN_PREFIX = ''
 URL_API_PREFIX = 'esapi'
 
@@ -19,4 +21,4 @@ class Login:
 
     @property
     def login_parameters(self):
-        return dict(username='transantiago', password='transantiago')
+        return dict(username=config('USERNAME'), password=config('PASSWORD'))
