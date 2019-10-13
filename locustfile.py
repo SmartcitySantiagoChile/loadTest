@@ -6,18 +6,6 @@ from task.trip import TripUserBehavior
 from url.utils import Login
 
 
-def login(l):
-    login_instance = Login()
-    response = l.client.get(login_instance.login_url)
-    csrf_token = response.cookies['csrftoken']
-
-    headers = {
-        'X-CSRFToken': csrf_token,
-        'Referer': l.client.base_url
-    }
-    l.client.post(login_instance.login_url, login_instance.login_parameters, headers=headers)
-
-
 class MasterUserBehavior(TaskSet):
     tasks = {
         ProfileUserBehavior: 60,
@@ -25,9 +13,20 @@ class MasterUserBehavior(TaskSet):
         TripUserBehavior: 20
     }
 
+    def login(self):
+        login_instance = Login()
+        response = self.client.get(login_instance.login_url)
+        csrf_token = response.cookies['csrftoken']
+
+        headers = {
+            'X-CSRFToken': csrf_token,
+            'Referer': self.client.base_url
+        }
+        self.client.post(login_instance.login_url, login_instance.login_parameters, headers=headers)
+
     def on_start(self):
         """ on_start is called when a Locust start before any task is scheduled """
-        login(self)
+        self.login()
 
 
 class WebsiteUser(HttpLocust):
