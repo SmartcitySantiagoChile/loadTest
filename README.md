@@ -19,6 +19,6 @@ PASSWORD='ADATRAP_PASSWORD'
 
 ## Run test
 
-To start process you have to run the command `locust --host:http://IP:PORT` where `IP` is ip target server and `PORT` is an optional parameter to give web site port
+To start process you have to run the command `locust --host=http://IP:PORT` where `IP` is ip target server and `PORT` is an optional parameter to give web site port
 
 By default locust loads an interface at `localhost:8089` to start test
