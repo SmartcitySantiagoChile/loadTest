@@ -8,7 +8,7 @@ class Trip:
 
     def __init__(self):
         self.__url_html_prefix = 'trip'
-        self.start_date = datetime(2017, 7, 31)
+        self.start_date = datetime(2018, 3, 1)
         self.delta = 37
 
     @property
@@ -76,7 +76,7 @@ class Trip:
     """
 
     def get_transfer_data_params(self):
-        start_date = datetime(2017, 5, 8)
+        start_date = datetime(2018, 3, 1)
         end_date = start_date + timedelta(days=random.randint(80, 120))
         stop_code_list = ['PA433', 'PI61', 'PA347']
         stop_code = stop_code_list[random.randint(0, len(stop_code_list) - 1)]
